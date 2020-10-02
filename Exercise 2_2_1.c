@@ -28,7 +28,6 @@ void SelectionSort(int A[], int n) {
     int swaping = 0;
     int i, j, small, temp;
     for (i = 0; i < n - 1; i++) {
-        printf("%d\n", i);
         small = i;
         for (j = i+1; j < n; j++) {
             comparison++;
@@ -46,7 +45,7 @@ void SelectionSort(int A[], int n) {
         
         A[i] = temp;
     }
-    printf("\ncomparison %d swaping %d", comparison, swaping);
+    printf("\ncomparison %d swaps %d", comparison, swaping);
 }
 
 void displayArr(int A[], int n) {
