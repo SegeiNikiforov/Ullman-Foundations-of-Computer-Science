@@ -20,3 +20,9 @@ The minimun number of comparisons is 0. The maximum number of comparisons is n(n
 The minimun number of swaps is 0. The maximum number of swaps is n
 
 // *******************************************************************************
+
+Exercise 2.2.5: What does selection sort do if all elements are the same?
+
+It does comparisons but doesn't do swaps
+
+// *******************************************************************************
