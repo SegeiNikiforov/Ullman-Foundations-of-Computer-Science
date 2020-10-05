@@ -3,8 +3,7 @@
 
 #define MAX 100
 int getSum(int [], int);
-int main()
-{
+int main() {
     int n;
     int A[MAX];
 
