@@ -37,11 +37,12 @@ void SelectionSort(struct STUDENT A[], int n) {
         }
 
         temp = A[small];
-        A[small] = A[i];
-
-        if (A[i].studentID != temp.studentID) {
-            swaping++;
+        if (small == i) {
+            continue;
         }
+        swaping++;
+
+        A[small] = A[i];
         A[i] = temp;
     }
     printf("\ncomparisons %d swaps %d", comparison, swaping);
