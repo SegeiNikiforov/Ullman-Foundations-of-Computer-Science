@@ -6,7 +6,7 @@ void SelectionSort(int A[], int n);
 
 int main() {
     int i, n;
-/* read and store input in A */
+    /* read and store input in A */
     for (n = 0; n < MAX && scanf("%d", &A[n]) != EOF; n++)
         ;
 
