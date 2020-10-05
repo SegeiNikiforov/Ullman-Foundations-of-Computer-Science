@@ -37,12 +37,12 @@ void SelectionSort(int A[], int n) {
         }
 
         temp = A[small];
-        A[small] = A[i];
-        
-        if (A[i] != temp) {
-            swaping++;
+        if (small == i) {
+            continue;
         }
+        swaping++;
         
+        A[small] = A[i];
         A[i] = temp;
     }
     printf("\ncomparison %d swaps %d", comparison, swaping);
