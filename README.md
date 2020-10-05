@@ -39,17 +39,23 @@ c) The product of the powers of 2 from 8 to 2k
 a)
 
 377
+
 Σ     f(i)
+
 i%2=1
 
 b) 
 
 n
+
 Σ     f(i*i)
+
 i%2=0
 
 c)
 
 2000
+
 π     f(2^i)
+
 i=8
