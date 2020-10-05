@@ -7,7 +7,8 @@ int main() {
     int n;
     int A[MAX];
 
-    for (n = 0; n < MAX && scanf("%d", &A[n]) != EOF; n++);
+    for (n = 0; n < MAX && scanf("%d", &A[n]) != EOF; n++)
+        ;
 
     printf("\nThe sum of array: %d\n", getSum(A, n));
     return 0;
