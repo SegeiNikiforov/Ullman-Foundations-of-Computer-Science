@@ -7,10 +7,11 @@ void displayArr(int [], int);
 int main() {
     int n;
     int A[MAX];
+//    Answer is:    
 //    int n = 5;
-//    int A[] = {6, 8, 14, 17, 23};
-//    int A[] = {17, 23, 14, 6, 8};
-//    int A[] = {23, 17, 14, 8, 6};
+//    int A[] = {6, 8, 14, 17, 23}; has 10 comparisons and 0 swapings
+//    int A[] = {17, 23, 14, 6, 8}; has 10 comparisons and 2 swapings
+//    int A[] = {23, 17, 14, 8, 6}; has 10 comparisons and 2 swapings
 
     for (n = 0; n < MAX && scanf("%d", &A[n]) != EOF; n++);
 
