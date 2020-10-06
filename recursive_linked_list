@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _node {
+    void *data;
+    struct _node *next;
+} Node;
+
+typedef struct _linkedList {
+    Node *head;
+    Node *tail;
+    Node *current;
+} LinkedList;
+
+typedef void(*DISPLAY)(void*);
+
+void initializeList(LinkedList *list);
+void addHead(LinkedList *list, void* data);
+void displayLinkedList(LinkedList *list, DISPLAY display);
+int main()
+{
+    LinkedList linkedList;
+    char *letter1 = 'a';
+    char *letter2 = 'b';
+    char *letter3 = 'c';
+
+    initializeList(&linkedList);
+    addHead(&linkedList, letter1);
+    addHead(&linkedList, letter2);
+    addHead(&linkedList, letter3);
+
+    displayLinkedList(&linkedList, (DISPLAY)displayLinkedList);
+
+    printf("Hello world!\n");
+    return 0;
+}
+
+void initializeList(LinkedList *list) {
+    list->head = NULL;
+    list->tail = NULL;
+    list->current = NULL;
+}
+
+void addHead(LinkedList *list, void* data) {
+    Node *node = (Node*) malloc(sizeof(Node));
+    node->data = data;
+    if (list->head == NULL) {
+        list->tail = node;
+        node->next = NULL;
+    } else {
+        node->next = list->head;
+    }
+    list->head = node;
+}
+
+void displayLinkedList(LinkedList *list, DISPLAY display) {
+    printf("\nLinked List\n");
+    Node *current = list->head;
+    while (current != NULL) {
+        display(current->data);
+        current = current->next;
+    }
+}
