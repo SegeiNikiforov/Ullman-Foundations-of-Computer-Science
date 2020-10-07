@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef void(*DISPLAY)(void*);
+typedef int(*COMPARE)(void*, void*);
+
 typedef struct _node {
     void *data;
     struct _node *next;
@@ -12,24 +15,28 @@ typedef struct _linkedList {
     Node *current;
 } LinkedList;
 
-typedef void(*DISPLAY)(void*);
-
 void initializeList(LinkedList *list);
-void addHead(LinkedList *list, void* data);
+void addTail(LinkedList *list, void* data);
 void displayLinkedList(LinkedList *list, DISPLAY display);
-int main()
-{
+void displayLetter(char *c);
+int compareElements(char *e1, char *e2);
+void displayLinkedList_recurstion(LinkedList *list, Node * next);
+int main() {
+    char *letter_1 = 'a';
+    char *letter_2 = 'b';
+    char *letter_3 = 'c';
+
     LinkedList linkedList;
-    char *letter1 = 'a';
-    char *letter2 = 'b';
-    char *letter3 = 'c';
+    LinkedList linkedList_1;
 
     initializeList(&linkedList);
-    addHead(&linkedList, letter1);
-    addHead(&linkedList, letter2);
-    addHead(&linkedList, letter3);
 
-    displayLinkedList(&linkedList, (DISPLAY)displayLinkedList);
+    addTail(&linkedList, letter_1);
+    addTail(&linkedList, letter_2);
+    addTail(&linkedList, letter_3);
+
+//    displayLinkedList(&linkedList, (DISPLAY)displayLetter);
+    displayLinkedList_recurstion(&linkedList, linkedList.head);
 
     printf("Hello world!\n");
     return 0;
@@ -41,16 +48,16 @@ void initializeList(LinkedList *list) {
     list->current = NULL;
 }
 
-void addHead(LinkedList *list, void* data) {
+void addTail(LinkedList *list, void* data) {
     Node *node = (Node*) malloc(sizeof(Node));
     node->data = data;
+    node->next = NULL;
     if (list->head == NULL) {
-        list->tail = node;
-        node->next = NULL;
+        list->head = node;
     } else {
-        node->next = list->head;
+        list->tail->next = node;
     }
-    list->head = node;
+    list->tail = node;
 }
 
 void displayLinkedList(LinkedList *list, DISPLAY display) {
@@ -60,4 +67,22 @@ void displayLinkedList(LinkedList *list, DISPLAY display) {
         display(current->data);
         current = current->next;
     }
+}
+
+void displayLinkedList_recurstion(LinkedList *list, Node *current) {
+    printf("\nLinked List\n");
+//    Node *current = list->head;
+    if (current != NULL) {
+        printf("%c\n", current->data);
+        current = current->next;
+        displayLinkedList_recurstion(&list, current);
+    }
+}
+
+void displayLetter(char *c) {
+    printf("%c\n", c);
+}
+
+int compareElements(char *el_1, char *el_2) {
+    return strcmp(el_1, el_2);
 }
