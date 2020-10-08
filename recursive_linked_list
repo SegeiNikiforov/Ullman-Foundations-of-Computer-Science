@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef void(*DISPLAY)(void*);
 typedef int(*COMPARE)(void*, void*);
@@ -21,22 +22,30 @@ void displayLinkedList(LinkedList *list, DISPLAY display);
 void displayLetter(char *c);
 int compareElements(char *e1, char *e2);
 void displayLinkedList_recurstion(LinkedList *list, Node * next);
+bool compare(Node *, Node *);
 int main() {
     char *letter_1 = 'a';
     char *letter_2 = 'b';
     char *letter_3 = 'c';
+    char *letter_4 = 'd';
 
     LinkedList linkedList;
     LinkedList linkedList_1;
 
     initializeList(&linkedList);
+    initializeList(&linkedList_1);
 
     addTail(&linkedList, letter_1);
     addTail(&linkedList, letter_2);
     addTail(&linkedList, letter_3);
 
+    addTail(&linkedList_1, letter_1);
+    addTail(&linkedList_1, letter_2);
+    addTail(&linkedList_1, letter_3);
+
 //    displayLinkedList(&linkedList, (DISPLAY)displayLetter);
-    displayLinkedList_recurstion(&linkedList, linkedList.head);
+//    displayLinkedList_recurstion(&linkedList, linkedList.head);
+    printf("%d\n", compare(linkedList.head, linkedList_1.head));
 
     printf("Hello world!\n");
     return 0;
@@ -85,4 +94,27 @@ void displayLetter(char *c) {
 
 int compareElements(char *el_1, char *el_2) {
     return strcmp(el_1, el_2);
+}
+
+
+bool compare(Node *current_1, Node *current_2) {
+/*
+    if (current_1 != NULL) {
+        printf("%c %c\n", current_1->data, current_2->data);
+        current_1 = current_1->next;
+        current_2 = current_2->next;
+        compare(current_1, current_2);
+    }
+*/
+    if (current_1->data == current_2->data) {
+        printf("%c %c\n", current_1->data, current_2->data);
+        return true;
+    }
+    if (current_1 == 0 || current_2 == 0 || current_1->data != current_2->data) {
+        return false;
+    }
+    else {
+        return compare(current_1, current_2);
+    }
+
 }
