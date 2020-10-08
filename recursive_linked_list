@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef void(*DISPLAY)(void*);
 typedef int(*COMPARE)(void*, void*);
@@ -24,28 +25,26 @@ int compareElements(char *e1, char *e2);
 void displayLinkedList_recurstion(LinkedList *list, Node * next);
 bool compare(Node *, Node *);
 int main() {
-    char *letter_1 = 'a';
-    char *letter_2 = 'b';
-    char *letter_3 = 'c';
-    char *letter_4 = 'd';
+    char *s_1 = "hellow";
+    char *s_2 = "hellow";
 
-    LinkedList linkedList;
     LinkedList linkedList_1;
+    LinkedList linkedList_2;
 
-    initializeList(&linkedList);
     initializeList(&linkedList_1);
+    initializeList(&linkedList_2);
 
-    addTail(&linkedList, letter_1);
-    addTail(&linkedList, letter_2);
-    addTail(&linkedList, letter_3);
+    for(int i = 0; i < strlen(s_1); i++) {
+        addTail(&linkedList_1, s_1[i]);
+    }
 
-    addTail(&linkedList_1, letter_1);
-    addTail(&linkedList_1, letter_2);
-    addTail(&linkedList_1, letter_3);
+    for(int i = 0; i < strlen(s_2); i++) {
+        addTail(&linkedList_2, s_2[i]);
+    }
 
-//    displayLinkedList(&linkedList, (DISPLAY)displayLetter);
-//    displayLinkedList_recurstion(&linkedList, linkedList.head);
-    printf("%d\n", compare(linkedList.head, linkedList_1.head));
+//    displayLinkedList(&linkedList_1, (DISPLAY)displayLetter);
+//    displayLinkedList_recurstion(&linkedList_1, linkedList_1.head);
+    printf("%d\n", compare(linkedList_1.head, linkedList_2.head));
 
     printf("Hello world!\n");
     return 0;
@@ -106,14 +105,16 @@ bool compare(Node *current_1, Node *current_2) {
         compare(current_1, current_2);
     }
 */
-    if (current_1->data == current_2->data) {
-        printf("%c %c\n", current_1->data, current_2->data);
-        return true;
-    }
-    if (current_1 == 0 || current_2 == 0 || current_1->data != current_2->data) {
+
+    if (current_1 == '\0') {
         return false;
     }
+    else if ((current_1->data - current_2->data) < 0) {
+        return true;
+    }
     else {
+        current_1 = current_1->next;
+        current_2 = current_2->next;
         return compare(current_1, current_2);
     }
 }
