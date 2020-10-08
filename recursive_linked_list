@@ -116,5 +116,4 @@ bool compare(Node *current_1, Node *current_2) {
     else {
         return compare(current_1, current_2);
     }
-
 }
