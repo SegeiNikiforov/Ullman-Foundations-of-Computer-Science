@@ -1,4 +1,4 @@
-Prove the statement by complete induction n, for n > 0
+Prove the statement by complete induction on n, for n > 0
 
 The statement S(n): If the expression E has binary operators then E must have an odd length.
 
