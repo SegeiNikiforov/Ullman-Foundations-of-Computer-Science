@@ -8,4 +8,6 @@ The statement S(n): If the expression E has binary operators then E must have an
 
 3) We know that in the valid expression the number of parenthesis is even. The formula of even number is 2n
 
-4) We know the sum of odd and even numbers is odd. So the expression (2n + 1) + 2n is odd
+4) We know the sum of odd and even numbers is odd. So the expression (2n + 1) + 2n is odd.
+
+We are done.
