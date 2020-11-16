@@ -29,4 +29,4 @@ k-2 = (5a + 7b) - 5;
 
 k-2 = 5(a - 1) + 7b;
 
-(a - 1) and b are integers. So k-3 = 5a' + 7b'. We have proved by complete induction that if the statement S(k+3) is true then the statement S(k-2) is also true.
+(a - 1) and b are integers. So k-3 = 5a' + 7b'. We have proved by complete induction that if the statement S(k+3) is true then the statement  S(k-2) is also true.
