@@ -5,9 +5,9 @@ STATEMENT S(n): There are integers a and b (positive or negative) such that n = 
 Basis: 
 * For n = 0; 5(0) + 7(0) = 0;
 * For n = 1; 5(3) + 7(-2) = 1;
-For n = 2; 5(-1) + 7(1) = 2;
-For n = 3; 5(2) + 7(-1) = 3;
-For n = 4; 5(-2) + 7(2) = 4;
+* For n = 2; 5(-1) + 7(1) = 2;
+* For n = 3; 5(2) + 7(-1) = 3;
+* For n = 4; 5(-2) + 7(2) = 4;
 
 Let us prove by induction on n the following statement for all n ≥ 0.
 We assume if k-2 = 5a + 7b true then k+3 = 5a + 7b is true.
