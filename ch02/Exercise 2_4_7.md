@@ -1,19 +1,17 @@
-Let us prove by induction on n the following statement for all n < 0.
+Let us prove by induction on n the following statement for all negative n.
 
-STATEMENT S(n): There are integers a and b (positive, negative, or 0) such that -n = 2a + 3b.
+STATEMENT S(n): There are integers a and b (positive, negative, or 0) such that n = 2a + 3b.
 
-Basis: For n = 1, pick a = 1 and b = -1. Then -1 = 2 × 1 + 3 × (-1)
+Basis: 
+* For n = 0; 2(0) + 3(0) = 0;
+* For n = -1; 2(1) + 3(-1) = -1;
 
-We assume S(-n) and prove S(-(n + 1)), for any n < 0
+Let us prove by induction on n the statement for all negative n. We assume that k+1 can be presented as 2a + 3b. We suppose that if k+1 can be written as 2a + 2b then k-1 can also be written as 2a + 2b. Let's prove this.
 
-By inductive hypothesis we may assume that if -n + 1 = 2a + 3b true, then -(n + 1) = 2a + 3b is true
+k-1 = (k + 1) - 2;
 
--(n + 1) = (-n + 1) - 2
+k-1 = (2a + 3b) - 2;
 
--(n + 1) = (2a′ + 3b′) - 2
+k-1 = 2(a - 1) + 3b;
 
--(n + 1) = (2a′ - 2) + 3b′
-
--(n + 1) = 2(a′ - 1) + 3b′
-
-If we then let a = a′ - 1 and b = b′, we have the statement -(n + 1) = 2a + 3b for some integers a and b.
+(a - 1) and b are integers. So k-1 can be presented as 2a + 3b. We have proved by complete induction that if the statement S(k+1) is true then the statement S(k-1) is also true.
